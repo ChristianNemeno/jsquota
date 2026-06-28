@@ -94,3 +94,17 @@ erDiagram
 | :--- | :--- | :--- |
 | `quoteId` | Primary Key, Foreign Key | References `Quote.id` |
 | `tagId` | Primary Key, Foreign Key | References `Tag.id` |
+
+---
+
+## Implementation Backlog
+
+| # | Task | Depends on |
+|---|------|------------|
+| 0 | Monorepo restructuring (Phase 0) | — |
+| 1 | Author module (CRUD + `GET /authors/:id/quotes`) | 0 |
+| 2 | Category module (CRUD + `GET /categories/:id/quotes`) | 0 |
+| 3 | Tag module (CRUD + `GET /tags/:id/quotes`) | 0 |
+| 4 | Quote module (CRUD + relationships) | 1, 2, 3 |
+| 5 | Swagger docs on all endpoints | 4 |
+| 6 | README submission | 5 |

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+    <role>
+        You are a senior DevOps and NestJS engineer.
+    </role>
+
+    <task>
+        Create a Docker Compose setup for a NestJS application and a MySQL database.
+    </task>
+
+    <requirements>
+        <requirement>
+            The docker-compose file must define two services:
+            <service>app</service>
+            <service>mysql</service>
+        </requirement>
+
+        <requirement>
+            The app service must build the NestJS application from a local Dockerfile.
+        </requirement>
+
+        <requirement>
+            The NestJS application should expose port 3000.
+        </requirement>
+
+        <requirement>
+            The MySQL service should use the official mysql:8.0 image.
+        </requirement>
+
+        <requirement>
+            Configure the MySQL container using environment variables:
+            <variable>MYSQL_ROOT_PASSWORD</variable>
+            <variable>MYSQL_DATABASE</variable>
+            <variable>MYSQL_USER</variable>
+            <variable>MYSQL_PASSWORD</variable>
+        </requirement>
+
+        <requirement>
+            Persist MySQL data using a named Docker volume.
+        </requirement>
+
+        <requirement>
+            Configure the NestJS container to connect to the MySQL service using the service name "mysql" as the hostname.
+        </requirement>
+
+        <requirement>
+            Use depends_on so the app service depends on the mysql service.
+        </requirement>
+
+        <requirement>
+            Include example environment variables for local development.
+        </requirement>
+
+        <requirement>
+            The generated output should include:
+            <item>docker-compose.yml</item>
+            <item>Dockerfile for NestJS</item>
+            <item>Example .env file</item>
+            <item>Brief explanation of each section</item>
+        </requirement>
+    </requirements>
+
+    <output-format>
+        Return all files in separate code blocks with filenames as headings.
+    </output-format>
+</prompt>
