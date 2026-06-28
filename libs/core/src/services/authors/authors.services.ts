@@ -1,9 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import { Author } from "../../entities/authors/author.entity";
+import { Quote } from "../../entities/quotes/quote.entity";
 import { Repository } from "typeorm";
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateAuthorDto } from "../../dtos/authors/create-author.dto";
 import { UpdateAuthorDto } from "../../dtos/authors/update-author.dto";
+import { NotImplementedException } from "@nestjs/common";
+
 
 @Injectable()
 export class AuthorsService {
@@ -56,6 +59,10 @@ export class AuthorsService {
      */
     async remove(id: number): Promise<void> {
         await this.authorRepository.delete(id);
+    }
+
+    async findQuotesByAuthor(id: number): Promise<Quote[]> {
+        throw new NotImplementedException('Method not implemented.');
     }
 
 

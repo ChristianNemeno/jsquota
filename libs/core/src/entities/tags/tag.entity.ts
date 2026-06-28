@@ -4,23 +4,17 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
+  ManyToMany,
 } from 'typeorm';
 import { Quote } from '../quotes/quote.entity';
 
-@Entity('authors')
-export class Author {
+@Entity('tags')
+export class Tag {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ length: 100 })
-  name!: string;
-
   @Column({ unique: true })
-  email!: string;
-
-  @Column({ nullable: true })
-  bio!: string;
+  name!: string;
 
   @CreateDateColumn()
   createdAt!: Date;
@@ -28,6 +22,6 @@ export class Author {
   @UpdateDateColumn()
   updatedAt!: Date;
 
-  @OneToMany(() => Quote, (quote: Quote) => quote.author)
+  @ManyToMany(() => Quote, (quote) => quote.tags)
   quotes!: Quote[];
 }

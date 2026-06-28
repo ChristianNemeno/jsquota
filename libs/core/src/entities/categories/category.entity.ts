@@ -8,19 +8,16 @@ import {
 } from 'typeorm';
 import { Quote } from '../quotes/quote.entity';
 
-@Entity('authors')
-export class Author {
+@Entity('categories')
+export class Category {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ length: 100 })
+  @Column({ unique: true })
   name!: string;
 
-  @Column({ unique: true })
-  email!: string;
-
   @Column({ nullable: true })
-  bio!: string;
+  description!: string;
 
   @CreateDateColumn()
   createdAt!: Date;
@@ -28,6 +25,6 @@ export class Author {
   @UpdateDateColumn()
   updatedAt!: Date;
 
-  @OneToMany(() => Quote, (quote: Quote) => quote.author)
+  @OneToMany(() => Quote, (quote) => quote.category)
   quotes!: Quote[];
 }
