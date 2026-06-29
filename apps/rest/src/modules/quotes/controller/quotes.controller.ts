@@ -27,9 +27,7 @@ export class QuotesController {
   }
 
   @Get(':id')
-  public async findOne(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<Quote> {
+  public async findOne(@Param('id', ParseIntPipe) id: number): Promise<Quote> {
     return this._quotesService.findOne(id);
   }
 
@@ -42,9 +40,7 @@ export class QuotesController {
   }
 
   @Delete(':id')
-  public async remove(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<void> {
+  public async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     await this._quotesService.remove(id);
   }
 }
