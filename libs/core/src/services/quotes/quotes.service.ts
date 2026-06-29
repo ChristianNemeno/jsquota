@@ -15,6 +15,11 @@ export class QuotesService {
     private readonly tagRepository: Repository<Tag>,
   ) {}
 
+  /**
+   * Creates a new quote with optional tags
+   * @param dto CreateQuoteDto containing text, authorId, categoryId, and optional tagIds
+   * @returns Promise resolving to the created quote
+   */
   async create(dto: CreateQuoteDto): Promise<Quote> {
     const quote = this.quoteRepository.create({
       text: dto.text,
@@ -29,12 +34,21 @@ export class QuotesService {
     return await this.quoteRepository.save(quote);
   }
 
+  /**
+   * Retrieves all quotes with author, category, and tags relations
+   * @returns Promise resolving to an array of all quotes
+   */
   async findAll(): Promise<Quote[]> {
     return await this.quoteRepository.find({
       relations: { author: true, category: true, tags: true },
     });
   }
 
+  /**
+   * Finds a quote by its ID with author, category, and tags relations
+   * @param id The ID of the quote to find
+   * @returns Promise resolving to the found quote or throwing if not found
+   */
   async findOne(id: number): Promise<Quote> {
     return await this.quoteRepository.findOneOrFail({
       where: { id },
@@ -42,6 +56,12 @@ export class QuotesService {
     });
   }
 
+  /**
+   * Updates an existing quote and optionally reassigns its tags
+   * @param id The ID of the quote to update
+   * @param dto UpdateQuoteDto containing the fields to update
+   * @returns Promise resolving to the updated quote
+   */
   async update(id: number, dto: UpdateQuoteDto): Promise<Quote> {
     const quote = await this.findOne(id);
 
@@ -58,6 +78,10 @@ export class QuotesService {
     return await this.quoteRepository.save(quote);
   }
 
+  /**
+   * Deletes a quote by its ID
+   * @param id The ID of the quote to delete
+   */
   async remove(id: number): Promise<void> {
     await this.quoteRepository.delete(id);
   }

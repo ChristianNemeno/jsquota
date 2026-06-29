@@ -51,8 +51,8 @@ export class AuthorsService {
   }
 
   /**
-   * It is what is it
-   * @param id  num
+   * Deletes an author by their ID
+   * @param id The ID of the author to delete
    */
   async remove(id: number): Promise<void> {
     await this.authorRepository.delete(id);
