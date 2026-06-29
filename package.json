@@ -8,9 +8,9 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\" \"config/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
+    "start": "nest start rest",
+    "start:dev": "nest start rest --watch",
+    "start:debug": "nest start rest --debug --watch",
     "start:prod": "node dist/apps/rest/src/main",
     "lint": "eslint \"{apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",

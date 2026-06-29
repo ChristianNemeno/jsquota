@@ -1,0 +1,1 @@
+export { QuoteResponse } from './quotes.swagger';

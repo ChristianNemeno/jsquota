@@ -10,7 +10,7 @@
     "rest": {
       "type": "application",
       "root": "apps/rest",
-      "entryFile": "main",
+      "entryFile": "apps/rest/src/main",
       "sourceRoot": "apps/rest/src",
       "compilerOptions": {
         "tsConfigPath": "apps/rest/tsconfig.app.json"
@@ -19,7 +19,7 @@
     "graphql": {
       "type": "application",
       "root": "apps/graphql",
-      "entryFile": "main",
+      "entryFile": "apps/graphql/src/main",
       "sourceRoot": "apps/graphql/src",
       "compilerOptions": {
         "tsConfigPath": "apps/graphql/tsconfig.app.json"

@@ -26,20 +26,20 @@ export class AuthorsController {
         return this._authorsService.findAllAuthors();
     }
 
-    @Get(':id')
-    public async findOne(
-        @Param('id', ParseIntPipe) id: number,
-    ): Promise<Author> {
-        return this._authorsService.findOne(id);
-    }
-
     @Get(':id/quotes')
     public async findQuotes(
         @Param('id', ParseIntPipe) id: number,
     ): Promise<Quote[]> {
         return this._authorsService.findQuotesByAuthor(id);
     }
-
+    
+    @Get(':id')
+    public async findOne(
+        @Param('id', ParseIntPipe) id: number,
+    ): Promise<Author> {
+        return this._authorsService.findOne(id);
+    }
+    
     @Put(':id')
     public async update(
         @Param('id', ParseIntPipe) id: number,
