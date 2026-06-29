@@ -33,9 +33,9 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "typeorm": "^1.0.0",
-    "@apollo/server": "^4.11.0",
+    "@apollo/server": "^5.0.0",
     "@nestjs/apollo": "^13.0.0",
-    "@nestjs/graphql": "^12.2.0",
+    "@nestjs/graphql": "^13.0.0",
     "graphql": "^16.9.0"
   },
   "devDependencies": {

@@ -5,7 +5,6 @@ import { Repository } from "typeorm";
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateAuthorDto } from "../../dtos/authors/create-author.dto";
 import { UpdateAuthorDto } from "../../dtos/authors/update-author.dto";
-import { NotImplementedException } from "@nestjs/common";
 
 
 @Injectable()
@@ -61,8 +60,21 @@ export class AuthorsService {
         await this.authorRepository.delete(id);
     }
 
+
+    /**
+     * Returns all quotes associated with a specific author by their ID
+     * @param id accepts an number of type id author
+     * @returns Promise , Array of Quote
+     */
     async findQuotesByAuthor(id: number): Promise<Quote[]> {
-        throw new NotImplementedException('Method not implemented.');
+        const author = await this.authorRepository.findOne({
+            where: { id },
+            relations: { quotes: true },
+        });
+        if (!author) {
+            throw new Error(`Author with ID ${id} not found`);
+        }
+        return author.quotes;
     }
 
 

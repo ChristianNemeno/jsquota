@@ -9,7 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { CreateAuthorDto, UpdateAuthorDto } from '@app/core/dtos';
-import { Author } from '@app/core/entities';
+import { Author, Quote } from '@app/core/entities';
 import { AuthorsService } from '@app/core/services';
 
 @Controller('authors')
@@ -36,8 +36,8 @@ export class AuthorsController {
     @Get(':id/quotes')
     public async findQuotes(
         @Param('id', ParseIntPipe) id: number,
-    ): Promise<Author> {
-        return this._authorsService.findOne(id);
+    ): Promise<Quote[]> {
+        return this._authorsService.findQuotesByAuthor(id);
     }
 
     @Put(':id')
