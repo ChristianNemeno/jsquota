@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthorsModule } from '../authors/authors.module';
 import { QuotesModule } from '../quotes/quotes.module';
+import { CategoriesModule } from '../categories/categories.module';
+import { TagsModule } from '../tags/tags.module';
 
 @Module({
   imports: [
@@ -23,6 +25,8 @@ import { QuotesModule } from '../quotes/quotes.module';
     }),
     AuthorsModule,
     QuotesModule,
+    CategoriesModule,
+    TagsModule,
   ],
   controllers: [],
   providers: [],
